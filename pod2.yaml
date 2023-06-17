@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: dev-pod2
+ labels:
+  app: app1
+  env: dev
+spec:
+ containers:
+   - name: dev-pod
+     image: httpd  
+   - name: redis
+     image: ubuntu
+     command: ["sleep", "10000"] 
+ 

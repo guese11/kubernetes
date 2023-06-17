@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: utrains3
+  labels:
+   app: utrains
+spec:
+  containers:
+    - name: utrains-app
+      image: httpd
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: app
+            operator: In
+            values:
+            - utrains
+        topologyKey: "kubernetes.io/hostname"                                
+                              
